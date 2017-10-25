@@ -10,4 +10,8 @@ RSpec.describe Author, type: :model do
     expect(subject.last_name).to eq('Turing')
     expect(subject.homepage).to eq('http://wikipedia.org/Alan_Turing')
   end
+
+  it "should return name as combination of first name and last name" do
+    expect(subject.name).to eq('Alan Turing')
+  end
 end

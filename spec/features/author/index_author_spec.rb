@@ -9,6 +9,6 @@ describe "Authors index page", type: :feature do
   it "should link to new Author page" do
     visit authors_path
 
-    expect(page).to have_link("add author")
+    expect(page).to have_link("Add author")
   end
 end

@@ -11,4 +11,12 @@ describe "Authors index page", type: :feature do
 
     expect(page).to have_link("Add author")
   end
+
+  it "should link to author page with text show" do
+    @author = create(:author)
+
+    visit authors_path
+
+    expect(page).to have_link("Show")
+  end
 end

@@ -14,4 +14,19 @@ RSpec.describe Author, type: :model do
   it "should return name as combination of first name and last name" do
     expect(subject.name).to eq('Alan Turing')
   end
+
+  describe '#valid?' do
+
+    let (:valid_author) { FactoryGirl.build(:author) }
+
+    it "should validate factory author" do
+      expect(valid_author).to be_valid
+    end
+
+    let(:invalid_author) { FactoryGirl.build(:author, :last_name => nil) }
+
+    it "should not validate without last name" do
+      expect(invalid_author).to_not be_valid
+    end
+  end
 end

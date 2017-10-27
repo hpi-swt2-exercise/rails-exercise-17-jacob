@@ -2,15 +2,19 @@ class AuthorsController < ApplicationController
   def index
   	@authors = Author.all
   end
-  
+
   def new
+  	@author = Author.new
   end
 
   def create
   	@author = Author.new(article_params)
 
-  	@author.save
-  	redirect_to @author
+  	if @author.save
+      redirect_to @author
+    else
+      render 'new'
+    end
   end
 
   def show

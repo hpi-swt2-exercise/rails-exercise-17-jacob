@@ -19,4 +19,12 @@ describe "Authors index page", type: :feature do
 
     expect(page).to have_link("Show")
   end
+
+  it "should have link destroy" do
+    @author = create(:author)
+
+    visit authors_path
+
+    expect(page).to have_link("Destroy")
+  end
 end

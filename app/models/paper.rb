@@ -6,4 +6,6 @@ class Paper < ActiveRecord::Base
   validates :venue, presence: true
   validates :year, numericality: { only_integer: true }
 
+  scope :published, ->(year) {where("year=?",year) if year.present?}
+
 end

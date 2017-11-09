@@ -17,12 +17,11 @@ class PapersController < ApplicationController
 
   # GET /papers/1/edit
   def edit
+    @paper = Paper.find(params[:id])
   end
 
   # POST /papers
   def create
-    @paper = Paper.new(paper_params)
-
     if @paper.save
       redirect_to @paper, notice: 'Paper was successfully created.'
     else
@@ -53,6 +52,6 @@ class PapersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def paper_params
-      params.require(:paper).permit(:title, :venue, :year)
+      params.require(:paper).permit(:title, :venue, :year, :author_ids => [])
     end
 end
